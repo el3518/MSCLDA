@@ -397,7 +397,7 @@ class MDAnet(nn.Module):
                 
                 l1_loss = torch.mean( torch.abs(torch.nn.functional.softmax(pred_tgt2, dim=1)
                                                 - torch.nn.functional.softmax(pred_tgt1, dim=1)) )
-                l1_loss += tmodelorch.mean( torch.abs(torch.nn.functional.softmax(pred_tgt2, dim=1)
+                l1_loss += torch.mean( torch.abs(torch.nn.functional.softmax(pred_tgt2, dim=1)
                                                 - torch.nn.functional.softmax(pred_tgt3, dim=1)) )
                 
                 data_src = torch.cat((data_srcc2, data_srcs2), 1)
