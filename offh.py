@@ -92,7 +92,6 @@ K = 5 # training times
 train_tags = ['mscl']
 train_flag = 0
 train_tag = train_tags[train_flag]
-load_tag = train_tags[0]
 
 def train(traepo,model):
     source1_iter = iter(source1_loader)
@@ -194,7 +193,7 @@ def train(traepo,model):
         
         if i % args.log_interval == 0:
             train_loss.append([loss1.item(), loss2.item(), w1, w2])
-            np.savetxt('./MDA/{}_train_loss_{}_{}_{}{}.csv'.format(dataname, args.test_dir, train_tag, source_sel, traepo), np.array(train_loss), fmt='%.6f', delimiter=',')
+            np.savetxt('./MDA/{}_train_loss_{}_{}{}.csv'.format(dataname, args.test_dir, train_tag, traepo), np.array(train_loss), fmt='%.6f', delimiter=',')
                 
         if i % (args.log_interval * 10) == 0:
             t_num, t_accu = test(traepo, model, w1, w2, w3)
@@ -294,7 +293,7 @@ def test(traepo, model, w1, w2, w3):#sort(w)
     t_loss /= len(target_test_loader.dataset)
     test_loss.append([t_loss])
     
-    np.savetxt('./MDA/{}_test_loss_{}_{}_{}{}.csv'.format(dataname, args.test_dir, train_tag, source_sel, traepo), np.array(test_loss), fmt='%.6f', delimiter=',')      
+    np.savetxt('./MDA/{}_test_loss_{}_{}{}.csv'.format(dataname, args.test_dir, train_tag, traepo), np.array(test_loss), fmt='%.6f', delimiter=',')      
     
     accu1 = float(correct1) / len(target_test_loader.dataset)*100 
     accu2 = float(correct2) / len(target_test_loader.dataset)*100
