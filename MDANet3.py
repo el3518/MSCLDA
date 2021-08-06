@@ -271,7 +271,7 @@ class MDAnet(nn.Module):
         
             data_src1p = data_src1p.view(data_src1p.size(0), -1)
             data_src2p = data_src2p.view(data_src2p.size(0), -1)
-            data_src3p = data_src2p.view(data_src3p.size(0), -1)
+            data_src3p = data_src3p.view(data_src3p.size(0), -1)
             data_tgt_p = data_tgt_p.view(data_tgt_p.size(0), -1) 
 
             data_tgtc1 = self.sonnetc1(data_tgt)
