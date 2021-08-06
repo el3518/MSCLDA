@@ -441,7 +441,7 @@ class MDAnet(nn.Module):
                 
                 return domain_loss, class_loss, cls_loss, l1_loss/3, weights#, s_loss
 
-        if mark == 3:
+            if mark == 3:
 
                 st_lossp += mmd.mmd(data_src3p, data_tgt_p)
                                               
